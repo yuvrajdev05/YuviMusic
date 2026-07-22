@@ -61,7 +61,10 @@ def private_panel(_):
                 text=_["E_X_1"],
                 callback_data="fork_repo"
             ),
-            InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
+            InlineKeyboardButton(
+    text=_["S_B_5"],
+    url="https://t.me/mad_x_yuvi",
+),
         ],
         [
             InlineKeyboardButton(text=_["S_B_4"], callback_data="help_page_1")
