@@ -185,7 +185,14 @@ async def welcome(client, message: Message):
                     )
                     return await app.leave_chat(message.chat.id)
 
-                out = start_panel(_)
+                out = [
+    [
+        InlineKeyboardButton(
+            "➕ Add Me",
+            url=f"https://t.me/{app.username}?startgroup=true"
+        )
+    ]
+]
                 try:
                     await message.reply_photo(
                         photo=config.START_IMG_URL,
