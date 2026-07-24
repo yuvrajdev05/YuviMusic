@@ -37,6 +37,7 @@ async def start_pm(client, message: Message, _):
                     photo=config.START_IMG_URL,
                     caption=_["help_1"].format(config.SUPPORT_GROUP),
                     reply_markup=keyboard,
+                    message_effect_id=5159385139981059251,
                 )
             except:
                 return await message.reply_photo(
@@ -84,6 +85,7 @@ async def start_pm(client, message: Message, _):
                     photo=thumbnail,
                     caption=searched_text,
                     reply_markup=key,
+                    message_effect_id=5159385139981059251,
                 )
             except:
                 await app.send_photo(
@@ -105,6 +107,7 @@ async def start_pm(client, message: Message, _):
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM),
                     reply_markup=InlineKeyboardMarkup(out),
+                    message_effect_id=5159385139981059251,
                 )
             except:
                 await message.reply_photo(
@@ -125,6 +128,7 @@ async def start_pm(client, message: Message, _):
                 photo=config.START_IMG_URL,
                 caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM),
                 reply_markup=InlineKeyboardMarkup(out),
+                message_effect_id=5159385139981059251,
             )
         except:
             await message.reply_photo(
@@ -149,6 +153,7 @@ async def start_gp(client, message: Message, _):
             photo=config.START_IMG_URL,
             caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
             reply_markup=InlineKeyboardMarkup(out),
+            message_effect_id=5159385139981059251,
         )
     except:
         await message.reply_photo(
@@ -185,14 +190,7 @@ async def welcome(client, message: Message):
                     )
                     return await app.leave_chat(message.chat.id)
 
-                out = [
-    [
-        InlineKeyboardButton(
-            "➕ Add Me",
-            url=f"https://t.me/{app.username}?startgroup=true"
-        )
-    ]
-]
+                out = start_panel(_)
                 try:
                     await message.reply_photo(
                         photo=config.START_IMG_URL,
@@ -203,6 +201,7 @@ async def welcome(client, message: Message):
                             app.mention,
                         ),
                         reply_markup=InlineKeyboardMarkup(out),
+                        message_effect_id=5159385139981059251,
                     )
                 except:
                     await message.reply_photo(
